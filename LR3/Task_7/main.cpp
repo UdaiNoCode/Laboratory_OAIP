@@ -66,7 +66,7 @@ long int int_cheker() {
         }
         unsigned int end_time = clock(); // конечное время
         unsigned int search_time = end_time - start_time;
-        std::cout<<search_time / 1000.0<<std::endl;
+        // std::cout<<search_time / 1000.0<<std::endl;
 
         std::cout<<"Если хотите завершить программу нажмите q\nЧтобы повторить вывод нажмите r\n";
         std::string stop_check;

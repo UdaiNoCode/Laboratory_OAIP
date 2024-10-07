@@ -55,13 +55,13 @@ long double durachek_check_v_1(bool type, std::string first_input)
 }
 
 
-int factorial( double n){
+int factorial( int n){
 
     return (n==0) || (n==1) ? 1 : n * factorial(n-1);
 }
 
-double sinus(double x) {
-    double x_1 = x * 180/ M_PI;
+long double sinus(long double x) {
+    long double x_1 = x * 180/ M_PI;
     if (x_1 >= 90) {
         x_1 = 180 - x_1;;
     }
@@ -69,16 +69,16 @@ double sinus(double x) {
         x_1 = -1 *(180 + x_1);
     }
     x_1 = x_1 * M_PI / 180;
-    double y{0};
-    for (int i = 0; i <= 20; i++) {
-        y +=  pow(-1, i) * (pow(x_1, 2 * i  + 1)) / factorial(2 * i + 1);
+    long double y{0};
+    for (int i = 0; i <= 15; i++) {
+        y +=  pow(-1, i) * (powl(x_1, 2 * i  + 1)) / factorial(2 * i + 1);
     }
     return y;
 }
 
-double cosus(double x) {
-    double x_1 = x * 180/ M_PI;;
-    double y{0};
+long double cosus(long double x) {
+    long double x_1 = x * 180/ M_PI;;
+    long double y{0};
     int minus{1};
     x_1 = x_1 < 0? -1 * x_1 : x_1;
     if(x_1 > 90) {
@@ -87,53 +87,76 @@ double cosus(double x) {
     }
 
     x_1 = x_1 * M_PI / 180;
-    for(int i = 0 ; i <= 20; i++) {
-        y += pow(-1, i) * (pow(x_1, 2 * i)) / factorial(2 * i);
+    for(int i = 0 ; i <= 15; i++) {
+        y += pow(-1, i) * (powl(x_1, 2 * i)) / factorial(2 * i);
     }
     return y * minus;
 }
 
-double logos(double x) {
 
-        double x_1 = x <  0? -1 * x : x;
-        double ratio = (x_1 - 1) / (x_1 + 1);
+long double logos(long double x_1) {
+    long double x = x_1 < 0? -1 * x_1 : x_1;
 
-        double accumul = ratio;
+    if (x >= 2) {
+        return logos(x/2.0) + 0.6931;
+    }
 
-        double total = accumul;
+    x = x-1;
 
-        int power = 3;
-        int n = 40;
-        while (power < n) {
+    long double total = 0.0;
+    long double xToTheIPower = x;
 
-            accumul *= ratio;
+    for (unsigned i = 1; i < 100; i++) {
 
-            accumul *= ratio;
-
-            total += (1 / (double) power) * accumul;
-
-            power += 2;
+        if (i%2 == 1) {
+            total += xToTheIPower / (i);
+        } else {
+            total -= xToTheIPower / (i);
         }
 
-        return 2.0 * total;
+        xToTheIPower *= x;
+    }
 
+    return total;
 }
+
 
 
 int main() {
-    long double ugol, ugol_cel, ugol_def, y_ugol ;
-    std::string input;
 
-    std::cin >> input;
-    ugol_def = durachek_check_v_1(str_chek(input), input);
-    ugol = ugol_def - 180 * truncl(ugol_def/ 180);
-    std::cout << ugol<< std::endl;
-    std::cout << "sin(x) = " <<  sinus(ugol * M_PI / 180) << std::endl;
-    std::cout << "cos(x) = " <<cosus(ugol * M_PI / 180) << std::endl;
-    if(ugol != 0){
-        std::cout << "ln(x) = "<<logos(ugol * M_PI / 180) << std::endl;
+    bool screen = true;
+
+    while(screen) {
+        std::string input;
+
+        std::cout<<"Введите угол в градусах"<<std::endl;
+        std::cin >> input;
+        long double ugol_def = durachek_check_v_1(str_chek(input), input);
+        long double ugol = ugol_def - 180 * truncl(ugol_def/ 180);
+        // std::cout << ugol<< std::endl;
+        std::cout << "sin(x) = " <<  sinus(ugol * M_PI / 180) << std::endl;
+        std::cout << "cos(x) = " <<cosus(ugol * M_PI / 180) << std::endl;
+        if(ugol_def == 0) {
+            std::cout<<"BAN";
+        }else {
+            std::cout << "ln(x) = "<<logos(ugol_def * M_PI / 180) << std::endl;
+        }
+
+
+        std::cout<<"Если хотите завершить программу нажмите q\nЧтобы повторить вывод нажмите r\n";
+        std::string stop_check;
+        std::cin>>stop_check;
+        while(stop_check != "q" and  stop_check != "r" ) {
+            std::cout<<"Введите значение еще раз:\n"
+                       "q - завершение\n"
+                       "r - рестарт\n";
+
+            std::cin>>stop_check;
+        }
+        if (stop_check == "q") {
+            screen = false;
+        }
     }
-    else {
-        std::cout<<"ln(x) не существует\n";
+    std::cout<<"Программа завершена";
+
     }
-}
