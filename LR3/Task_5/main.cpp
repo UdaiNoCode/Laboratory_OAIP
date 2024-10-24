@@ -1,7 +1,13 @@
 #include <iostream>
 #include<cmath>
 
+void contex_menu() {
+    std::cout<<"Необходимо приближенно найти корень уравнения f(x) = 0\n";
 
+    std::cout<<"Выполснено Савиновым Арсенией г.453503"<<std::endl;
+
+
+}
 
 long double check_validate() {
     long double x;
@@ -20,6 +26,8 @@ long double my_function(long double x) {
 }
 
 int main() {
+    contex_menu();
+
     bool screen = true;
     while(screen) {
         long double min_func_val = my_function(0.5);
@@ -29,6 +37,10 @@ int main() {
 
         long double step = check_validate();
 
+        while(step < 0.0000001) {
+            std::cout<<"У вас это займет слишком много времени, введиет еще раз и желательно больше\n";
+            step = check_validate();
+        }
         for(long double i = 0.5; i <= 1.5; i += step) {
             if(fabsl(my_function(i)) <=  min_func_val) {
                 min_func_val = my_function(i);

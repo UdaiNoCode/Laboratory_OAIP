@@ -339,12 +339,6 @@ int main() {
 
 
 
-
-
-
-
-
-
         std::cout<<"Если хотите завершить программу нажмите q\nЧтобы повторить вывод нажмите r\n";
         std::string stop_check;
         std::cin>>stop_check;
