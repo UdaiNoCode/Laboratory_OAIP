@@ -1,46 +1,33 @@
 #include <iostream>
-#include <algorithm>
-#include <map>
 #include <cmath>
-#include <ctime>
-#include <vector>
 
-std::string return_num(long  int a) {
-    std::string num_st = std::to_string(a);
-    std::sort(num_st.begin(), num_st.end());
-    return num_st;
-
-}
-
-
-long int int_cheker() {
-    long int a;
-    while (std::cin.fail()){
+long int int_input() {
+    long int x;
+    while (!(std::cin >> x) or std::cin.get() != '\n')
+    {
+        std::cout << "Error!" << std::endl << "Введите значение повторно "<< ": ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Введите значение повторно:\n";
-        std::cin >> a;
+        while (std::cin.get() != '\n');
     }
-    return a;
+    return x;
 }
 
 
     int  main() {
+
+    std::cout<<"Программу, которая выводит все числа Армстронга, меньше введённого\n"
+                "пользователем числа.\n";
+    std::cout<<"Выполнено Савиновым Арсением г.453503\n";
+    std::cout<<std::endl;
     bool screen = true;
     while(screen) {
-        unsigned int start_time = clock();
-
         long int n;
         std::cout << "Enter a number(8-byte): ";
-        std::cin>>n;
-
-        if(std::cin.fail()) {
-            n = int_cheker();
-        }
+        n = int_input();
 
         std::string num_in, num_check, nuumy;;
         int a{10}, i_power = 1;
-        int summaery{0}, buff;
+        int summaery{0};
         int powers[10][10];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -53,9 +40,9 @@ long int int_cheker() {
                 a *= 10;
 
             }
-            buff = i;
+            long long int buff = i;
             while (buff != 0) {
-                summaery += powers[buff % 10][i_power];//multy[buff % 10];
+                summaery += powers[buff % 10][i_power];
                 buff /= 10;
             }
             if(i == summaery) {
@@ -64,9 +51,8 @@ long int int_cheker() {
             summaery = 0;
 
         }
-        unsigned int end_time = clock(); // конечное время
-        unsigned int search_time = end_time - start_time;
-        // std::cout<<search_time / 1000.0<<std::endl;
+
+
 
         std::cout<<"Если хотите завершить программу нажмите q\nЧтобы повторить вывод нажмите r\n";
         std::string stop_check;

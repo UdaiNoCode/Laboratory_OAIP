@@ -2,67 +2,35 @@
 #include<cmath>
 
 
-bool str_chek(std::string input){
-    int dot_counter = 0, i_if_minus;
-    if(input[0] == '-' && input.length() != 1){
-        i_if_minus = 1;
 
-    }
-    else{
-        i_if_minus = 0;
-    }
-
-
-    for (int i = i_if_minus; i < input.length(); i ++)
+long double check_validate() {
+    long double x;
+    while (!(std::cin >> x) or std::cin.get() != '\n')
     {
-        if(isdigit(input[i]) == false){
-            if (input[i] == '.' && dot_counter < 1){
-                dot_counter ++;
-            }
-            else{
-                return false;
-            }
-        }
+        std::cout << "Error!" << std::endl << "Введите значение повторно "<< ": ";
+        std::cin.clear();
+        while (std::cin.get() != '\n');
     }
-    return true;
-
+    return x;
 }
 
- double durachek_check_v_1(bool type, std::string first_input)
-{
-
-    bool cheker = type;
-    std::string input_in_test = std::move(first_input);
-    while (!cheker)
-    {
-        std::cout<<"Введите значение повторно: \n";
-        std::cin>>input_in_test;
-        cheker = str_chek(input_in_test);
-
-    }
-
-    double return_cin = std::stold(input_in_test);
-    return return_cin;
-}
-
-double my_function(double x) {
-    double y = sin(log10(x)) + x*(cos(x*x) / sin(x*x));
+long double my_function(long double x) {
+    long double y = sinl(log10l(x)) + x*(cosl(x*x) / sinl(x*x));
     return y;
 }
+
 int main() {
     bool screen = true;
     while(screen) {
-        double min_func_val = my_function(0.5);
-        double min_funnc_x = 0;
+        long double min_func_val = my_function(0.5);
+        long double min_funnc_x = 0;
 
         std::cout << "Введите шаг поиска" << std::endl;
-        std::string input_step;
-        double step;
-        std::cin >> input_step;
-        step = durachek_check_v_1(str_chek(input_step), input_step);
 
-        for(double i = 0.5; i <= 1.5; i += step) {
-            if(abs(my_function(i)) <=  min_func_val) {
+        long double step = check_validate();
+
+        for(long double i = 0.5; i <= 1.5; i += step) {
+            if(fabsl(my_function(i)) <=  min_func_val) {
                 min_func_val = my_function(i);
                 min_funnc_x = i;
             }
