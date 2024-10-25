@@ -1,7 +1,14 @@
 #include <iostream>
 #include <cmath>
 
-long int int_input() {
+void contex() {
+    std::cout<<"Напишите программу, которая выводит все числа Армстронга, меньше введённого\n"
+                "пользователем числа.\n";
+    std::cout<<"Выполнено Савиновым Арсением г.453503\n";
+    std::cout<<std::endl;
+}
+
+long int check_validate() {
     long int x;
     while (!(std::cin >> x) or std::cin.get() != '\n')
     {
@@ -15,15 +22,13 @@ long int int_input() {
 
     int  main() {
 
-    std::cout<<"Программу, которая выводит все числа Армстронга, меньше введённого\n"
-                "пользователем числа.\n";
-    std::cout<<"Выполнено Савиновым Арсением г.453503\n";
-    std::cout<<std::endl;
+    contex();
+
     bool screen = true;
     while(screen) {
-        long int n;
-        std::cout << "Enter a number(8-byte): ";
-        n = int_input();
+
+        std::cout << "Введите число, до которого хотите найти все числа Армстронга(8-byte): ";
+        long int n = check_validate();
 
         std::string num_in, num_check, nuumy;;
         int a{10}, i_power = 1;
@@ -72,6 +77,8 @@ long int int_input() {
 
     }
     std::cout<<"Программа завершена";
+
+    return 0;
 }
 
 

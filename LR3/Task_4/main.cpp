@@ -1,105 +1,82 @@
 #include <iostream>
 #include <cmath>
 
-int int_cheker() {
-    int a;
-    while (std::cin.fail()){
+void contex_menu() {
+    std::cout<<"Необходимо разложить функцию Y(x) из своего варианта в ряд S(x),\n"
+        "затем с помощью полученного ряда найти значение функции и сравнить его со\n"
+        "значением, вычисленным с помощью стандартных функций. программа\n"
+        "должна запросить у пользователя количество членов ряда (n), затем запросить\n"
+        "у пользователя количество чисел, от которых он хочет посчитать функцию,\n"
+        "затем пользователь вводит по одному числу (x от 0.1, до 1), программа считаетзначение функции с помощью ряда и с помощью стандартных функций и\n"
+        "выводит оба значения.\n";
+
+    std::cout<<"Выполснено Савиновым Арсенией г.453503\n"<<std::endl;
+
+}
+
+
+
+long double check_validate() {
+    long double x;
+    while (!(std::cin >> x) or std::cin.get() != '\n')
+    {
+        std::cout << "Error!" << std::endl << "Введите значение повторно "<< ": ";
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Введите значение повторно:\n";
-        std::cin >> a;
+        while (std::cin.get() != '\n');
     }
-    return a;
+    return x;
 }
 
-bool str_chek(std::string input){
-    int dot_counter = 0, i_if_minus;
-    if(input[0] == '-' && input.length() != 1){
-        i_if_minus = 1;
-
-    }
-    else{
-        i_if_minus = 0;
-    }
-
-
-    for (int i = i_if_minus; i < input.length(); i ++)
+int check_validate_int() {
+    int x;
+    while (!(std::cin >> x) or std::cin.get() != '\n')
     {
-        if(isdigit(input[i]) == false){
-            if (input[i] == '.' && dot_counter < 1){
-                dot_counter ++;
-            }
-            else{
-                return false;
-            }
-        }
+        std::cout << "Error!" << std::endl << "Введите значение повторно "<< ": ";
+        std::cin.clear();
+        while (std::cin.get() != '\n');
     }
-    return true;
-
+    return x;
 }
 
-long double durachek_check_v_1(bool type, std::string first_input)
-{
-
-    bool cheker = type;
-    std::string input_in_test = std::move(first_input);
-    while (!cheker)
-    {
-        std::cout<<"Введите значение повторно: \n";
-        std::cin>>input_in_test;
-        cheker = str_chek(input_in_test);
-
-    }
-
-    long double return_cin = std::stold(input_in_test);
-    return return_cin;
-}
-
-int factorial( double n){
+int factorial(int  n){
 
     return (n==0) || (n==1) ? 1 : n * factorial(n-1);
 }
 
- double my_func( double x) {
-     double y = (1.0 - x * x / 2) * cos(x) - x/2 * sin(x);
+long double my_func( long double x) {
+    long double y = (1.0 - x * x / 2.0) * cosl(x) - x/2 * sinl(x);
     return y;
 }
 
-double riad(double n, double x) {
-    double riad_sum{0};
+long double riad(long double n, long double x) {
+    long double riad_sum{0};
     for (int i = 0; i <= n; i++) {
-        double y = pow(-1.0 , i) * (2 * i * i + 1)/(double)(factorial(2*i)) * pow(x , 2 * i);
+        long double y = pow(-1.0 , i) * (2 * i * i + 1)/(double)(factorial(2*i)) * powl(x , 2 * i);
         riad_sum += y;
     }
     return riad_sum;
 }
 
-int main()
-{
+int main(){
+
+    contex_menu();
+
+
     while(true) {
         std::cout <<"Сколько чисел от который вы хотите посчитать функцию\n";
-        int atgument_counter;
-        std::cin >> atgument_counter;
-        if(std::cin.fail()) {
-            atgument_counter = int_cheker();
-        }
+        int atgument_counter = check_validate_int();
+
 
         for (int i = 0; i < atgument_counter; i++){
             std::cout<<"Введите количество членов ряда 4-byte n"<<std::endl;
-            int n;
-            std::cin >> n;
-            if(std::cin.fail()) {
-                n = int_cheker();
-            }
+            int n = check_validate_int();
 
 
             std::cout<<"Введите аргумент в x диапазоне (0.1, 1)" << std::endl;
-            std::string x_input;
-            std::cin >> x_input;
-            long double x = durachek_check_v_1(str_chek(x_input), x_input);
+
+            long double x = check_validate();
             if(x < 0.1 or x > 1) {
-                x_input = "Wrong input";
-                x = durachek_check_v_1(str_chek(x_input), x_input);
+                x = check_validate();
             }
 
 

@@ -264,7 +264,7 @@ long double logos(long double x_1) {
 }
 
 
-std::string PI_s = "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919";
+const std::string PI_s = "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919";
 std::string P_double = multiply(PI_s, "2");
 
 std::string remqls(std::string str_1, int point_pos) {
@@ -277,8 +277,6 @@ std::string remqls(std::string str_1, int point_pos) {
     std::string division = long_Dividing(str_1, P_double);
     division.insert(division.size() - 50 - point_pos, ".");
     //delete all before point
-
-    //std::cout << division << std::endl;
 
     while(division[0] != '.') {
         division.erase(division.begin());
@@ -316,14 +314,14 @@ int main() {
         unsigned int point_sdwig = point_check(std::to_string(ugol_def_num)).first;
         std::string ugol_10 = point_check(std::to_string(ugol_def_num)).second;
 
-         if(ugol_def_num <= 2 * M_PI) {
+        if(ugol_def_num <= 2 * M_PI) {
              if (ugol_def_num < 2 * M_PI) {
                  ugol = ugol_def_num;
              } else {
                  ugol = 0;
              }
-         } else {
-            ugol = stold(remqls(ugol_10, point_sdwig));
+        } else {
+             ugol = stold(remqls(ugol_10, point_sdwig));
         }
         if(minus_flag) {
             ugol *= -1;

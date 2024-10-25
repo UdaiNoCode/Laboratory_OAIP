@@ -2,6 +2,33 @@
 #include <vector>
 #include <algorithm>
 
+bool alpha_check(const std::string& str) {
+    for (char i : str) {
+        if(std::isalpha(i)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+std::string check_string() {
+
+    std::string s;
+
+    bool flag = true;
+
+    while(flag) {
+        std::cin >> s;
+        if(!alpha_check(s)) {
+            flag = false;
+        }
+        else {
+            std::cout<<"Error, введите значение повторно: "<<std::endl;
+        }
+    }
+    return s;
+
+}
 
 std::string minus_one(std::string a) {
     if(a[0] == '-') {
@@ -21,13 +48,6 @@ bool xor_check(bool a, bool b) {
     }
         return true;
 }
-//
-// std::tuple<std::string, int> double_conventer(std::string a) {
-//     int dot_pos = a.find('.');
-//     a.erase(a.begin() +  dot_pos);
-//     std::tuple<std::string, int>  ret_par = {a, dot_pos};
-//     return std::tuple<std::string, int>
-// }
 
 std::string multyplus(std::string s1, std::string s2) {
     std::string result, median_res, median_res_mod;
@@ -132,8 +152,8 @@ std::string dividing_of_3(std::string a, int b) {
 }
 
 
-long double check_validate() {
-    long double x;
+int check_validate() {
+    int x;
     while (!(std::cin >> x) or std::cin.get() != '\n')
          {
              std::cout << "Error!" << std::endl << "Введите значение повторно "<< ": ";
@@ -148,7 +168,6 @@ long double check_validate() {
 std::string power_abs(std::string a_power_base, int n) {
     std::vector<std::string> c(n + 1);
     c[0] = "1";
-    int cout{0};
     for (int i = 1; i < n + 1; i++) {
         c[1] = multyplus(a_power_base, c[0]);
         c.erase(c.begin());
@@ -164,17 +183,16 @@ int main(){
     while(screen) {
 
         std::cout << "Введите первый член прогрессии (8-byte): " << std::endl;
-        std::string b_0;
-        std::cin>>b_0;
+        std::string b_0 = check_string();
 
         std::cout<<"Введите колличество членов прогрессии (8-byte): " << std::endl;
         int n_number = check_validate();
 
          std::string result_of_2 = dividing_of_3(multyplus("1",minus_one(power_abs("-2", n_number))),-3);
          std::string result_final = multyplus(result_of_2,b_0);
-        //
+
          std::cout<<result_final<<std::endl;
-         // std::cout<<double_conventer("1234.5678");
+
 
 
 
