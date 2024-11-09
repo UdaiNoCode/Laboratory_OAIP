@@ -1,0 +1,5 @@
+# ninja log v6
+1	19	1731134478503691944	build.ninja	62d8754fe47a8876
+1	908	1731134475377679453	CMakeFiles/Task_5_Google_Tests_.dir/main.cpp.o	4b9e53a95972498
+1	35	1731134475377679453	CMakeFiles/Task_5_Google_Tests_.dir/Saper.c.o	57c9397f025ba78c
+908	965	1731134476284683104	Task_5_Google_Tests_	751b0654f360f7f0

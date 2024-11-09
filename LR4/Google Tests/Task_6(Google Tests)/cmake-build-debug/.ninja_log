@@ -1,0 +1,8 @@
+# ninja log v6
+1939	2051	1731107830348717856	Google_Tests	a894a597c16e4dac
+3	75	1731107910337161049	build.ninja	dd8d20740bd3e99
+3	1939	1731107828412706387	CMakeFiles/Google_Tests.dir/main.cpp.o	1fc6286a075ce2a8
+5	88	1731107828414706399	CMakeFiles/Google_Tests.dir/main_magic.c.o	4223a6a9a5c2fb90
+7	78	1731107914982185048	CMakeFiles/Google_Tests.dir/main_magic.c.o	af5af7d83c1ccbce
+6	1776	1731107914981185043	CMakeFiles/Google_Tests.dir/main.cpp.o	fe0e4112135fc263
+1776	1873	1731107916751194139	Google_Tests	a894a597c16e4dac

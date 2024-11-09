@@ -1,0 +1,1 @@
+CMakeLists.txt not found in /home/udainoko/Documents/453503/ОАиП/LR4/Google Tests Select CMakeLists.txt
