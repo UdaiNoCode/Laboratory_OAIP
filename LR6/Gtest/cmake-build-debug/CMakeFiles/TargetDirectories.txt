@@ -1,0 +1,4 @@
+/home/udainoko/Documents/453503/ОАиП/LR6/Gtest/cmake-build-debug/CMakeFiles/Google_Tests.dir
+/home/udainoko/Documents/453503/ОАиП/LR6/Gtest/cmake-build-debug/CMakeFiles/test.dir
+/home/udainoko/Documents/453503/ОАиП/LR6/Gtest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/udainoko/Documents/453503/ОАиП/LR6/Gtest/cmake-build-debug/CMakeFiles/rebuild_cache.dir

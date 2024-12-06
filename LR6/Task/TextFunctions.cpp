@@ -64,3 +64,32 @@ std::pair<int, char**> findWorld(char* array, size_t size) {
     return {i_count, words_out_array};
 
 }
+
+int findSum(char* array, size_t size) {
+    int sum = 0;
+    int minus = -1;
+
+    bool first_in = false;
+
+    for (int i = 0; i < size; i++) {
+        if (isdigit(array[i])) {
+            if (!first_in) {
+                first_in = true;
+                if (i != 0 and array[i - 1] == '-') {
+                    sum += (array[i] - '0')*minus;
+                    minus *= -1;
+                }
+                else{
+                    sum += (array[i] - '0');
+                }
+
+            }
+            else {
+                sum += (array[i] - '0')*minus;
+                minus *= -1;
+            }
+        }
+    }
+    return sum;
+
+}

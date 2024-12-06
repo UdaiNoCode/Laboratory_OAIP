@@ -7,6 +7,9 @@
 #define TASK_MAIFUNC_H
 
 char *readline();
+void context_1();
+void context_2() ;
+void context_3();
 
 void print(char* str, int n);
 
