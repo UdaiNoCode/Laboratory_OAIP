@@ -10,6 +10,8 @@ char *readline();
 void context_1();
 void context_2() ;
 void context_3();
+size_t input_size_validate();
+bool program_stop();
 
 void print(char* str, int n);
 

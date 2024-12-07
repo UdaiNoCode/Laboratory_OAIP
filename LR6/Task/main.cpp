@@ -6,7 +6,12 @@
 void Task_1(char* array, size_t size_array, int k) {
     size_t size = strlen(array);
     int c = inWichWorld(array, size, k);
-    std::cout << c << std::endl;
+    if (c == -1) {
+        std::cout << "Error" << std::endl;
+    }
+    else {
+        std::cout << c << std::endl;
+    }
     free(array);
 }
 
@@ -27,40 +32,46 @@ void Task_3(char* array, size_t size_array) {
 
 
 int main() {
-    std::cout << "Введите исходную строку: \n" << std::endl;
-    char* input = readline();
 
-    std::cout <<"Выберете какую часть работы вы хотите использовать: \n"
-                "1 или 2 или 3"<< std::endl;
+    bool screen = true;
+    while (screen) {
+        std::cout << "Введите исходную строку: \n" << std::endl;
+        char* input = readline();
 
-    int n;
-    std::cin >> n;
+        std::cout <<"Выберете какую часть работы вы хотите использовать: \n"
+                    "1 или 2 или 3"<< std::endl;
 
-    switch (n) {
-        case 1:{
-            context_1();
+        int n;
+        std::cin >> n;
 
-            std::cout<<"Введите k\n";
-            int k;
-            std::cin >> k;
+        switch (n) {
+            case 1:{
+                context_1();
 
-            Task_1(input, strlen(input), k);
-            break;
+                std::cout<<"Введите k\n";
+                int k;
+                std::cin >> k;
+
+                Task_1(input, strlen(input), k);
+                break;
+            }
+            case 2: {
+                context_2();
+                Task_2(input, strlen(input));
+                free(input);
+                break;
+            }
+            case 3: {
+                context_3();
+                Task_3(input, strlen(input));
+                free(input);
+                break;
+            }
+            default:
+                std::cout<<"Ошибка ввода\n";
         }
-        case 2: {
-            context_2();
-            Task_2(input, strlen(input));
-            break;
-        }
-        case 3: {
-            context_3();
-            Task_3(input, strlen(input));
-            break;
-        }
-        default:
-            std::cout<<"Ошибка ввода\n";
+
+        screen = program_stop();
     }
-
-    free(input);
 
 }

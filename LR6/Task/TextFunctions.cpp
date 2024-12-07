@@ -4,9 +4,8 @@
 #include <iostream>
 
 int trueWorldCounter(char* array, size_t size) {
-    //need to add
     int counter = 1;
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) {
         if (array[i] == ' ' and array[i + 1] != ' ') {
             counter++;
         }
@@ -14,8 +13,8 @@ int trueWorldCounter(char* array, size_t size) {
     return counter;
 }
 
-int inWichWorld(char* array, size_t size, int k) {
-    if (size < k) {
+int inWichWorld(char* array, size_t size,int k) {
+    if (size < k or k < 0) {
         return -1;
     }
 
@@ -34,8 +33,6 @@ int inWichWorld(char* array, size_t size, int k) {
 }
 
 std::pair<int, char**> findWorld(char* array, size_t size) {
-
-    std::cout<<size<<std::endl;
 
     char* word = new char[size + 1];
 
@@ -71,7 +68,7 @@ int findSum(char* array, size_t size) {
 
     bool first_in = false;
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) {
         if (isdigit(array[i])) {
             if (!first_in) {
                 first_in = true;
