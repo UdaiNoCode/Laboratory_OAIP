@@ -1,3 +1,0 @@
-/home/udainoko/Documents/453503/ОАиП/LR8/cmake-build-debug/CMakeFiles/LR8.dir
-/home/udainoko/Documents/453503/ОАиП/LR8/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/udainoko/Documents/453503/ОАиП/LR8/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,12 @@
+# ninja log v6
+3	1917	1734299660141005924	CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o	c7d0542ef90917af
+5	1966	1734298089920664756	CMakeFiles/Task2.dir/StructFunc/structFunctions.cpp.o	41ce475b85a6b1c8
+1917	2042	1734299662054975738	Task2	37a544412e3d6f02
+4	649	1734299350433240548	CMakeFiles/Task2.dir/menusFunc/menuFunc.cpp.o	708adcf9f5c1e96d
+3	736	1734299350432240574	CMakeFiles/Task2.dir/main.cpp.o	6c8244b99bff28ad
+2	62	1734299694102482375	build.ninja	c9f723e16c439da8
+2	676	1734299694116482164	CMakeFiles/Task2.dir/main.cpp.o	963dc0b48341e964
+3	748	1734299694117482149	CMakeFiles/Task2.dir/menusFunc/menuFunc.cpp.o	1652bc72dac510e6
+3	2266	1734299694117482149	CMakeFiles/Task2.dir/StructFunc/structFunctions.cpp.o	89b7ee6294ad0af5
+4	2274	1734299694118482134	CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o	ad07f1d678a2988f
+2274	2395	1734299696388448033	Task2	108788f37191a0c8
