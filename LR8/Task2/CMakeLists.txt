@@ -12,4 +12,8 @@ add_executable(Task2 main.cpp
         StructFunc/structFunctions.cpp
         StructFunc/structFunctions.h
         FuncPractical/myFunc.cpp
-        FuncPractical/myFunc.h)
+        FuncPractical/myFunc.h
+        FileSave/SaveAndCreate.cpp
+        FileSave/SaveAndCreate.h
+        menusFunc/inputValidateFunc.cpp
+        menusFunc/inputValidateFunc.h)

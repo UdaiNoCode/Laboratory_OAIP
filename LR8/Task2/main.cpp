@@ -3,6 +3,8 @@
 #include "menusFunc/menuFunc.h"
 #include "StructFunc/structFunctions.h"
 #include "FuncPractical/myFunc.h"
+#include "FileSave/SaveAndCreate.h"
+#include "menusFunc/inputValidateFunc.h"
 
 int main() {
 
@@ -10,9 +12,24 @@ int main() {
     bool cleaned = false;
     int option;
 
-    std::pair<Person*, size_t> perPair = newPersons();
-    Person* persons = perPair.first;
-    size_t personsSize = perPair.second;
+    Person* persons = nullptr;
+    size_t personsSize = 0;
+
+    std::cout <<"Press 1 to load previous data: \n";
+    std::cout<< "Press 2 to start new session: \n";
+    std::cout <<">";
+    int n;
+    std::cin >> n;
+    if (n == 1) {
+        std::pair<Person*, size_t> perPair = SaveAndLoad::LoadForFile();
+        persons = perPair.first;
+        personsSize = perPair.second;
+    }
+    else {
+        std::pair<Person*, size_t> perPair = newPersons();
+        persons = perPair.first;
+        personsSize = perPair.second;
+    }
 
     do {
         menu::print_menu();
@@ -51,14 +68,17 @@ int main() {
                 includeMain(persons, personsSize);
                 break;
             }
+            case 6: {
+                bool isSaved = SaveAndLoad::SaveAndCreateFile(persons, personsSize);
+            }
             default: {
             }
         }
 
-        if (option != 6) {
+        if (option != 7) {
             menu::stop_system();
         }
-        if(option == 6) {
+        if(option == 7) {
             screen = false;
         }
 

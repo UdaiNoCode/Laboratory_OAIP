@@ -15,14 +15,17 @@ double salaryCounter(double salary, double hours) {
 
     double salaryPerHour = salary / 144;
 
+    const double tax = 0.12;
+
     double upHours = hours - 144;
     if (upHours < 0) {
         upHours = 0;
     }
     hours = hours - upHours;
     double totalSalary = salaryPerHour * hours  + salaryPerHour * upHours * 2;
+    double totTaxSal = totalSalary * (1 - tax);
 
-    return totalSalary;
+    return totTaxSal;
 }
 
 void printTotalSalaty(Person *persons, size_t size) {

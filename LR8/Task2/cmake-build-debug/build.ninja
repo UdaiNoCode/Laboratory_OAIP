@@ -51,27 +51,39 @@ build cmake_object_order_depends_target_Task2: phony || .
 
 build CMakeFiles/Task2.dir/main.cpp.o: CXX_COMPILER__Task2_unscanned_Debug /home/udainoko/Documents/453503/ОАиП/LR8/Task2/main.cpp || cmake_object_order_depends_target_Task2
   DEP_FILE = CMakeFiles/Task2.dir/main.cpp.o.d
-  FLAGS = -fsanitize=address -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Task2.dir
   OBJECT_FILE_DIR = CMakeFiles/Task2.dir
 
 build CMakeFiles/Task2.dir/menusFunc/menuFunc.cpp.o: CXX_COMPILER__Task2_unscanned_Debug /home/udainoko/Documents/453503/ОАиП/LR8/Task2/menusFunc/menuFunc.cpp || cmake_object_order_depends_target_Task2
   DEP_FILE = CMakeFiles/Task2.dir/menusFunc/menuFunc.cpp.o.d
-  FLAGS = -fsanitize=address -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Task2.dir
   OBJECT_FILE_DIR = CMakeFiles/Task2.dir/menusFunc
 
 build CMakeFiles/Task2.dir/StructFunc/structFunctions.cpp.o: CXX_COMPILER__Task2_unscanned_Debug /home/udainoko/Documents/453503/ОАиП/LR8/Task2/StructFunc/structFunctions.cpp || cmake_object_order_depends_target_Task2
   DEP_FILE = CMakeFiles/Task2.dir/StructFunc/structFunctions.cpp.o.d
-  FLAGS = -fsanitize=address -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Task2.dir
   OBJECT_FILE_DIR = CMakeFiles/Task2.dir/StructFunc
 
 build CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o: CXX_COMPILER__Task2_unscanned_Debug /home/udainoko/Documents/453503/ОАиП/LR8/Task2/FuncPractical/myFunc.cpp || cmake_object_order_depends_target_Task2
   DEP_FILE = CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o.d
-  FLAGS = -fsanitize=address -g -std=gnu++20 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Task2.dir
   OBJECT_FILE_DIR = CMakeFiles/Task2.dir/FuncPractical
+
+build CMakeFiles/Task2.dir/FileSave/SaveAndCreate.cpp.o: CXX_COMPILER__Task2_unscanned_Debug /home/udainoko/Documents/453503/ОАиП/LR8/Task2/FileSave/SaveAndCreate.cpp || cmake_object_order_depends_target_Task2
+  DEP_FILE = CMakeFiles/Task2.dir/FileSave/SaveAndCreate.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Task2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Task2.dir/FileSave
+
+build CMakeFiles/Task2.dir/menusFunc/inputValidateFunc.cpp.o: CXX_COMPILER__Task2_unscanned_Debug /home/udainoko/Documents/453503/ОАиП/LR8/Task2/menusFunc/inputValidateFunc.cpp || cmake_object_order_depends_target_Task2
+  DEP_FILE = CMakeFiles/Task2.dir/menusFunc/inputValidateFunc.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Task2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Task2.dir/menusFunc
 
 
 # =============================================================================
@@ -81,8 +93,8 @@ build CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o: CXX_COMPILER__Task2_unsca
 #############################################
 # Link the executable Task2
 
-build Task2: CXX_EXECUTABLE_LINKER__Task2_Debug CMakeFiles/Task2.dir/main.cpp.o CMakeFiles/Task2.dir/menusFunc/menuFunc.cpp.o CMakeFiles/Task2.dir/StructFunc/structFunctions.cpp.o CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o
-  FLAGS = -fsanitize=address -g
+build Task2: CXX_EXECUTABLE_LINKER__Task2_Debug CMakeFiles/Task2.dir/main.cpp.o CMakeFiles/Task2.dir/menusFunc/menuFunc.cpp.o CMakeFiles/Task2.dir/StructFunc/structFunctions.cpp.o CMakeFiles/Task2.dir/FuncPractical/myFunc.cpp.o CMakeFiles/Task2.dir/FileSave/SaveAndCreate.cpp.o CMakeFiles/Task2.dir/menusFunc/inputValidateFunc.cpp.o
+  FLAGS = -g
   OBJECT_DIR = CMakeFiles/Task2.dir
   POST_BUILD = :
   PRE_LINK = :

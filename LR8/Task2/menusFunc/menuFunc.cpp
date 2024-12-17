@@ -13,7 +13,8 @@ namespace menu {
         std::cout<<"3. Clear the list\n";
         std::cout<<"4. Delete person\n";
         std::cout<<"5. Function\n";
-        std::cout<<"6. Exit\n";
+        std::cout<<"6. Save changes\n";
+        std::cout<<"7. Exit\n";
         std::cout<<">";
     }
 

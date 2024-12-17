@@ -5,12 +5,12 @@
 #include <format>
 
 #include "structFunctions.h"
+#include "../menusFunc/inputValidateFunc.h"
 
 
 std::pair<Person*, size_t> newPersons() {
     std::cout<<"Введите колличество учетных записей\n";
-    size_t persCount;
-    std::cin>>persCount;
+    size_t persCount = checkValidateSize_t();
 
     auto persons = new Person[persCount];
 
@@ -23,10 +23,10 @@ std::pair<Person*, size_t> newPersons() {
         std::cin>>persons[i].tabelNumber;
 
         std::cout<<"Введите колличесво проработанный часов: \n";
-        std::cin >> persons[i].mounthHours;
+        persons[i].mounthHours = checkValidateDouble();
 
         std::cout<<"Введите месячную зарплату:\n";
-        std::cin>> persons[i].mounthSalry;
+        persons[i].mounthSalry = checkValidateDouble();
 
     }
     return {persons, persCount};
@@ -67,10 +67,10 @@ Person* addPerson(Person* persons, size_t &size) {
     std::cin>>newPersons[size].tabelNumber;
 
     std::cout<<"Введите колличесво проработанный часов: \n";
-    std::cin >> newPersons[size].mounthHours;
+    newPersons[size].mounthHours = checkValidateDouble();
 
     std::cout<<"Введите месячную зарплату:\n";
-    std::cin>> newPersons[size].mounthSalry;
+    newPersons[size].mounthSalry = checkValidateDouble();
 
     size++;
     return newPersons;

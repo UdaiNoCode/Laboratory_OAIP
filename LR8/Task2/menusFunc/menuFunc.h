@@ -16,9 +16,10 @@ namespace inclmenu {
     void print_menu();
 }
 
-
 namespace change {
     void print_menu();
 }
+
+
 
 #endif //MENUFUNC_H
