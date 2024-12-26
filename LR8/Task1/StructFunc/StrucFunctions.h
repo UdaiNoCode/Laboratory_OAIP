@@ -7,6 +7,7 @@
 #ifndef STRUCFUNCTIONS_H
 #define STRUCFUNCTIONS_H
 #include <utility>
+#include <iostream>
 #include <unordered_set>
 
 struct Marks {
@@ -21,7 +22,6 @@ struct Person {
     std::string name;
     std::string address;
     Marks marks;
-
 };
 typedef struct Person person;
 

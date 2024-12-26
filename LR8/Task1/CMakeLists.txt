@@ -12,4 +12,6 @@ add_executable(LR8 main.cpp
         Menu/menu.cpp
         Menu/menu.h
         MainFunc/MainTaskFunc.cpp
-        MainFunc/MainTaskFunc.h)
+        MainFunc/MainTaskFunc.h
+        FileLoad/FileFunc.cpp
+        FileLoad/FileFunc.h)

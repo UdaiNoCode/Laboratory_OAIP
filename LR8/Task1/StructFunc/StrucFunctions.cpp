@@ -33,7 +33,7 @@ int autoMarks() {
     std::mt19937 generator(random_device()); // Генератор случайных чисел.
 
 
-    std::uniform_int_distribution<> distribution(1, 10); // Равномерное распределение [1, 240]
+    std::uniform_int_distribution<> distribution(6, 10); // Равномерное распределение [1, 240]
 
     int mark = distribution(generator); // Случайное число.
     return mark;
@@ -57,10 +57,12 @@ std::pair<Person*, size_t> newPersons() {
 
    auto persons = new Person[persCount];
 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     for(int i = 0; i < persCount; i++) {
 
         std::cout<<"Введите ФИО\n";
-        std::cin>>persons[i].name;
+        std::getline(std::cin, persons[i].name);
 
         std::cout<<"Введите адресс проживания: \n";
         std::cin>>persons[i].address;
@@ -110,6 +112,7 @@ std::pair<Person*, size_t> newPersons() {
             }
         }
 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     }
     return {persons, persCount};
@@ -168,10 +171,10 @@ Person* add_person(Person* persons, size_t &size) {
     }
     delete[] persons;
 
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout<<"Введите ФИО\n";
-    std::cin>>newPersons[size].name;
+    std::getline(std::cin, newPersons[size].name);
 
     std::cout<<"Введите адресс проживания: \n";
     std::cin>>newPersons[size].address;

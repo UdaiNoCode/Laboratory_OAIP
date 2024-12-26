@@ -2,6 +2,7 @@
 // Created by udainoko on 12/17/24.
 //
 #include <fstream>
+#include <cmath>
 
 
 #include "../StructFunc/structFunctions.h"
@@ -41,10 +42,14 @@ namespace SaveAndLoad {
         size_t personCount;
         inFile >> personCount;
 
+        inFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
         auto persons = new Person[personCount];
 
         for (size_t i = 0; i < personCount; i++) {
-            inFile >> persons[i].name >> persons[i].tabelNumber >> persons[i].mounthHours >> persons[i].mounthSalry;
+            std::getline(inFile, persons[i].name);
+            inFile >> persons[i].tabelNumber >> persons[i].mounthHours >> persons[i].mounthSalry;
+            inFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         inFile.close();
 

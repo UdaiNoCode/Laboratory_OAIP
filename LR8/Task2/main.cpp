@@ -14,22 +14,41 @@ int main() {
 
     Person* persons = nullptr;
     size_t personsSize = 0;
+    bool screenStart = true;
 
-    std::cout <<"Press 1 to load previous data: \n";
-    std::cout<< "Press 2 to start new session: \n";
-    std::cout <<">";
-    int n;
-    std::cin >> n;
-    if (n == 1) {
-        std::pair<Person*, size_t> perPair = SaveAndLoad::LoadForFile();
-        persons = perPair.first;
-        personsSize = perPair.second;
+    while (screenStart) {
+        std::cout <<"Press 1 to load previous data: \n";
+        std::cout<< "Press 2 to start new session: \n";
+        std::cout <<">";
+        int n;
+        std::cin >> n;
+        if (std::cin.fail()) {
+            n = checkValidateInt();
+        }
+        switch (n) {
+            case 1: {
+                std::pair<Person*, size_t> perPair = SaveAndLoad::LoadForFile();
+                persons = perPair.first;
+                personsSize = perPair.second;
+                screenStart = false;
+                break;
+            }
+
+            case 2: {
+                std::pair<Person*, size_t> perPair = newPersons();
+                persons = perPair.first;
+                personsSize = perPair.second;
+                screenStart = false;
+                break;
+            }
+            default: {
+                system("clear");  // очищаем экран
+                std::cout << "Invalid input." << std::endl;
+                break;
+            }
+        }
     }
-    else {
-        std::pair<Person*, size_t> perPair = newPersons();
-        persons = perPair.first;
-        personsSize = perPair.second;
-    }
+
 
     do {
         menu::print_menu();

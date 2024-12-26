@@ -9,4 +9,6 @@ size_t checkValidateSize_t();
 
 double checkValidateDouble();
 
+int checkValidateInt();
+
 #endif //INPUTVALIDATEFUNC_H

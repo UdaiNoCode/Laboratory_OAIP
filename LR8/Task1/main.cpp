@@ -2,7 +2,7 @@
 #include <utility>
 #include <unordered_set>
 
-
+#include "FileLoad/FileFunc.h"
 #include "MainFunc/MainTaskFunc.h"
 #include "StructFunc/StrucFunctions.h"
 #include "Menu/menu.h"
@@ -13,10 +13,24 @@ int main() {
     int variant;
     bool screen = true;
     bool cleaned = false;
-    std::pair<Person*, size_t> persons_pair = newPersons();
+    // std::pair<Person*, size_t> persons_pair = newPersons();
+    //
+    // Person* persons = persons_pair.first;
+    // size_t persons_size = persons_pair.second;
 
-    Person* persons = persons_pair.first;
-    size_t persons_size = persons_pair.second;
+    Person* persons = nullptr;
+    size_t persons_size = 0;
+    int intpers = persons_size;
+
+    readArrayFromFile(persons, intpers);\
+    persons_size = intpers;
+    std::cout<<persons_size<<std::endl;
+
+
+
+
+
+
     std::system("clear");
 
     do {
@@ -76,7 +90,11 @@ int main() {
         }
     }while (screen);
 
+
+    writeArrayToFile(persons, persons_size);
     if (!cleaned) {
         deletePerson(persons, persons_size);
     }
+
+
 }
